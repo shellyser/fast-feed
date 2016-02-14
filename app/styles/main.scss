@@ -1,0 +1,198 @@
+// bower:scss
+@import "bower_components/susy/sass/_susy.scss";
+@import "bower_components/support-for/sass/_support-for.scss";
+@import "bower_components/normalize-scss/sass/normalize/_import-now.scss";
+// endbower
+
+@import "base/_base.scss";
+
+body {
+  background: white;
+  font-family: 'FC Zizou Sans', Helvetica, Arial, sans-serif;
+  // line-height: 1.25;
+  color: #333;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+p {
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+header {
+  margin-bottom: 27px;
+  .header-background {
+    width: 100%;
+    height: 0px;
+    border-top: 210px solid #fdea72;
+    // border-left: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    position: absolute;
+    z-index: -2;
+    left: 0;
+  }
+  h1 {
+    font-size: 5.25em;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: .15em;
+    margin: 0px;
+    span {
+      display: inline-block;
+      &:first-of-type{
+        margin-right: 14px;
+      }
+    }
+  }
+  h2 {
+    font-family:'FC Kaiser', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-align: center;
+    margin: 0px;
+  }
+  @include breakpoint($tablet){
+    @include span(10);
+    @include push(2);
+    position: relative;
+    margin-top: 180px;
+  }
+  @include breakpoint($desktop){
+    h2 {
+      display: none;
+    }
+  }
+}
+
+main {
+  position: relative;
+  padding: 0px 14px;
+  @include breakpoint($tablet){
+    @include span(9);
+    @include push(2);
+  }
+}
+
+.article-header{
+  // padding: 1em;
+  // background-color: white;
+}
+
+h1 {
+  font-family:'FC Kaiser Cond', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2.25em;
+  margin: 23px 0px 27px;
+}
+
+h3 {
+  font-family:'FC Kaiser Cond', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.15em;
+  letter-spacing: .1em;
+}
+
+article {
+  h3 {
+    span {
+      display: inline-block;
+      margin-right: 10px;
+      border-right: 1px solid black;
+      padding-right: 10px;
+      height: 21px;
+      line-height: 1;
+      &:last-of-type {
+        margin-right: 0px;
+        border-right: none;
+        padding-right: 0px;
+      }
+    }
+  }
+  .article-link {
+    font-weight: 800;
+    display: inline-block;
+    border-bottom: 3px solid #ced7dd;
+    line-height: 1.2em;
+    font-size: 1em;
+    margin-top: 0px;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  .article-socialmedia {
+    color: #a7a7a7;
+    margin-top: 10px;
+    > span {
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #d8d8d8;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      position: relative;
+      margin-right: 20px;
+      i.fa {
+        transform: translate(0, 50%);
+        line-height: 1em;
+        font-size: 1.2em;
+      }
+    }
+  }
+  .article-ad {
+    margin: 50px 0px 80px;
+  }
+}
+
+.article-1{
+  p {
+    color: #ec008b;
+  }
+  @include breakpoint($tablet) {
+    @include span(5 of 9 last);
+    transform: translate(0,-25%);
+    p {
+      @include span(4 of 5 last);
+    }
+    .article-ad {
+      margin-top: 80px;
+      @include span(4 of 5 last);
+    }
+  }
+}
+
+.main-image{
+  // background-image: url('/images/jessica_alba.jpg');
+  // width: 100%;
+  // height: 200px;
+  // background-size: cover;  
+  // position: relative;
+  // z-index: -1;
+  // left: 0;
+  height: 120%;
+  img {
+    width: 100%;
+  }
+
+}
+
+.article-2{
+  @include breakpoint($tablet){
+    @include span(4 of 9 first);
+    .article-ad {
+      margin-top: 80px;
+    }
+    h1 {
+      margin-top: 80px;
+    }
+  }
+}
