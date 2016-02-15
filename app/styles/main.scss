@@ -24,6 +24,7 @@ body {
 h1, h3 {
   font-family:'FC Kaiser Cond Reg', sans-serif;
   text-transform: uppercase;
+  font-weight: normal;
 }
 
 
@@ -44,18 +45,25 @@ h3 {
 p {
   line-height: 1.5;
   font-size: 18px;
+  letter-spacing: .5px;
 }
-
+nav {
+  height: 100px;
+  background-color: white;
+  z-index: 10;
+  position: relative;
+}
 header {
   margin-bottom: 27px;
+  padding-top: 40px;
   @include container();
   .header-background {
     z-index: 1;
     background: #fdea72;
     top: -4px;
-    height: 425px;
+    height: 475px;
     margin-left: -5%;
-    margin-top: -130px;
+    margin-top: 5%;
     overflow: hidden;
     position: absolute;
     transform: skewY(5deg) translateZ(0);
@@ -68,10 +76,11 @@ header {
   .header-description {
     font-family:'FC Kaiser', sans-serif;
     text-transform: uppercase;
-    font-weight: 500;
+    // font-weight: 500;
+    font-size: 1.25em;
     letter-spacing: .1em;
     text-align: center;
-    margin: 0px;
+    margin: 10px 0px 20px;
   }
   h1 {
     font-size: 5.25em;
@@ -89,7 +98,8 @@ header {
     display: none;
   }
   @include breakpoint($tablet){
-    margin-bottom: 0px;
+    margin: 0px;
+    padding-top: 50px;
     h1 {
       @include span(11);
       @include push(1);
@@ -107,14 +117,8 @@ header {
       @include span(10 of 12 last);
       @include image-aspect-ratio(17, 10, '/images/jessica_alba.jpg');
       display: block;
-      // position: relative;
       z-index: 4;
-      transform: translateY(-10%);
-      // width: 100%;
-      // img {
-      //   width: 100%;
-      //   position: relative;
-      // }
+      transform: translateY(-50px);
       h2 {
         display: inline-block;
         padding: 20px 20px 0px;
@@ -123,6 +127,7 @@ header {
         bottom: 0;
         right: 10%;
         margin: 0px;
+        font-size: 3.75em;
         @include span(5 of 10);
         @include push(4);
       }
@@ -132,7 +137,7 @@ header {
 
 main {
   position: relative;
-  padding: 0px 14px;
+  padding: 0px 20px;
   z-index: 3;
   @include breakpoint($tablet){
     @include span(9);
@@ -219,7 +224,7 @@ article {
     .main-image {
       display: none;
     }
-    h1 {
+    h2 {
       display: none;
     }
     .article-ad {
