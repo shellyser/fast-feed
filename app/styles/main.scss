@@ -1,6 +1,6 @@
 // bower:scss
 @import "bower_components/susy/sass/_susy.scss";
-@import "bower_components/support-for/sass/_support-for.scss";
+@import "bower_components/compass-breakpoint/stylesheets/_breakpoint.scss";
 @import "bower_components/normalize-scss/sass/normalize/_import-now.scss";
 // endbower
 
@@ -10,7 +10,8 @@ body {
   background: white;
   font-family: 'FC Zizou Sans', Helvetica, Arial, sans-serif;
   // line-height: 1.25;
-  color: #333;
+  color: #000;
+  font-size: 100%;
 }
 
 .browserupgrade {
@@ -20,6 +21,26 @@ body {
   padding: 0.2em 0;
 }
 
+h1, h3 {
+  font-family:'FC Kaiser Cond Reg', sans-serif;
+  text-transform: uppercase;
+}
+
+
+h2{
+  font-family:'FC Kaiser Cond Bold', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2.25em;
+  margin: 23px 0px 27px;
+}
+
+h3 {
+  font-size: 1.15em;
+  letter-spacing: .1em;
+}
+
+
 p {
   line-height: 1.5;
   font-size: 18px;
@@ -27,19 +48,33 @@ p {
 
 header {
   margin-bottom: 27px;
+  @include container();
   .header-background {
-    width: 100%;
-    height: 0px;
-    border-top: 210px solid #fdea72;
-    // border-left: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+    z-index: 1;
+    background: #fdea72;
+    top: -4px;
+    height: 425px;
+    margin-left: -5%;
+    margin-top: -130px;
+    overflow: hidden;
     position: absolute;
-    z-index: -2;
-    left: 0;
+    transform: skewY(5deg) translateZ(0);
+    width: 115%;
+  }
+  .header-title {
+    position: relative;
+    z-index: 6;
+  }
+  .header-description {
+    font-family:'FC Kaiser', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-align: center;
+    margin: 0px;
   }
   h1 {
     font-size: 5.25em;
-    font-weight: 400;
     text-align: center;
     letter-spacing: .15em;
     margin: 0px;
@@ -50,23 +85,47 @@ header {
       }
     }
   }
-  h2 {
-    font-family:'FC Kaiser', sans-serif;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-align: center;
-    margin: 0px;
+  .header-main-article{
+    display: none;
   }
   @include breakpoint($tablet){
-    @include span(10);
-    @include push(2);
-    position: relative;
-    margin-top: 180px;
-  }
-  @include breakpoint($desktop){
-    h2 {
+    margin-bottom: 0px;
+    h1 {
+      @include span(11);
+      @include push(1);
+      font-size: 450%;
+      text-align: left;
+      letter-spacing: .2em;
+      span {
+        display: block;
+      }
+    }
+    .header-description {
       display: none;
+    }
+    .header-main-article{
+      @include span(10 of 12 last);
+      @include image-aspect-ratio(17, 10, '/images/jessica_alba.jpg');
+      display: block;
+      // position: relative;
+      z-index: 4;
+      transform: translateY(-10%);
+      // width: 100%;
+      // img {
+      //   width: 100%;
+      //   position: relative;
+      // }
+      h2 {
+        display: inline-block;
+        padding: 20px 20px 0px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        right: 10%;
+        margin: 0px;
+        @include span(5 of 10);
+        @include push(4);
+      }
     }
   }
 }
@@ -74,31 +133,13 @@ header {
 main {
   position: relative;
   padding: 0px 14px;
+  z-index: 3;
   @include breakpoint($tablet){
     @include span(9);
     @include push(2);
+    transform: translateY(-40px);
+    padding: 0px;
   }
-}
-
-.article-header{
-  // padding: 1em;
-  // background-color: white;
-}
-
-h1 {
-  font-family:'FC Kaiser Cond', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 2.25em;
-  margin: 23px 0px 27px;
-}
-
-h3 {
-  font-family:'FC Kaiser Cond', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 1.15em;
-  letter-spacing: .1em;
 }
 
 article {
@@ -150,49 +191,58 @@ article {
   }
   .article-ad {
     margin: 50px 0px 80px;
+    @include image-aspect-ratio(12, 10, '/images/ad.jpg');
   }
-}
-
-.article-1{
-  p {
-    color: #ec008b;
-  }
-  @include breakpoint($tablet) {
-    @include span(5 of 9 last);
-    transform: translate(0,-25%);
-    p {
-      @include span(4 of 5 last);
-    }
-    .article-ad {
-      margin-top: 80px;
-      @include span(4 of 5 last);
-    }
-  }
-}
-
-.main-image{
-  // background-image: url('/images/jessica_alba.jpg');
-  // width: 100%;
-  // height: 200px;
-  // background-size: cover;  
-  // position: relative;
-  // z-index: -1;
-  // left: 0;
-  height: 120%;
-  img {
-    width: 100%;
-  }
-
-}
-
-.article-2{
   @include breakpoint($tablet){
     @include span(4 of 9 first);
     .article-ad {
       margin-top: 80px;
+      width: 60%;
     }
     h1 {
       margin-top: 80px;
     }
+  }
+}
+
+.article:first-of-type{
+  p {
+    color: #ec008b;
+  }
+  .main-image{
+    @include image-aspect-ratio(4, 3, '/images/jessica_alba.jpg');
+  }
+  @include breakpoint($tablet) {
+    // @include span(5 of 9 last);
+    // transform: translate(0,-25%);
+      @include span(4 of 9 last);
+    .main-image {
+      display: none;
+    }
+    h1 {
+      display: none;
+    }
+    .article-ad {
+      margin-top: 80px;
+      // @include span(4 of 5 first);
+    }
+  }
+}
+
+article.article-video {
+  @include span(9 of 12 last);
+  .article-background {
+    background-color: #fde900;
+    @include span(8 of 9 first);
+    height: 400px;
+    position: relative;
+    z-index: -1;
+  }
+  .article-header {
+    @include span(4 of 12 first);
+    position: absolute;
+  }
+  @include breakpoint($tablet){
+    @include span(9);
   }
 }

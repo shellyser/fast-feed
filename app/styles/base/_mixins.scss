@@ -1,0 +1,11 @@
+@mixin image-aspect-ratio($width, $height, $url) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+    background-image: url($url);
+    background-size: cover;
+  }
+}
