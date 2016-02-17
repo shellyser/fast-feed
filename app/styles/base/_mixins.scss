@@ -1,3 +1,4 @@
+//mixin that maintains ratio of images and elements
 @mixin image-aspect-ratio($width, $height, $url) {
   position: relative;
   &:before {
