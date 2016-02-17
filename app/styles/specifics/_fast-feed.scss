@@ -89,10 +89,18 @@
             &:visited {
                 color: $grey;
             }
+            &:hover, &:active {
+                background-color: lighten($silver, 5%);
+                color: lighten($grey, 10%);
+            }
             i.fa {
                 transform: translate(0, 50%);
                 line-height: 1em;
                 font-size: 1.2em;
+                position: relative;
+                &[class$='twitter'], &[class$='facebook']{
+                    top: 1px;
+                }
             }
         }
     }
