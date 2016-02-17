@@ -1,3 +1,5 @@
+'use strict';
+
 //Social media share link object
 class ShareLinkDialog {
     constructor(width, height) {
@@ -13,12 +15,12 @@ class ShareLinkDialog {
     //sets dialog size and location on browser's window
     setupDialog(event){
         this.url = event.target.href || event.target.parentNode.href;
-        var left = (window.innerWidth  - this.dialogWidth)  / 2,
-            top  = (window.innerHeight - this.dialogHeight) / 2;  
-            return 'status=1' + ',width=' + this.dialogWidth  + ',height=' + this.dialogHeight + ',top=' + top + ',left=' + left;
+        var left = (window.innerWidth - this.dialogWidth) / 2;
+        var top = (window.innerHeight - this.dialogHeight) / 2;  
+        return 'status=1' + ',width=' + this.dialogWidth + ',height=' + this.dialogHeight + ',top=' + top + ',left=' + left;
     }
     //opens dialog when social media button is clicked
-    triggerDialog(options) {
+    triggerDialog() {
         event.preventDefault();
         this.options = this.setupDialog(event);
         window.open(this.url, 'twitter', this.options);
@@ -27,7 +29,3 @@ class ShareLinkDialog {
 }
 
 var FFsharelinks = new ShareLinkDialog(575, 400);
-
-
-
-	
