@@ -3,8 +3,6 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
-import browserify from 'browserify';
-import babelify from 'babelify';
 import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
